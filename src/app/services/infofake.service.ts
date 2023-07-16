@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -8,33 +9,21 @@ export class InfofakeService {
   categories: any[] = [];
   brands: any[] = [];
   top: any[] = [];
-  Infofake: any = [];
+  info: any = [];
 
   constructor(private http: HttpClient) {
     this.loadInfofakeData();
   }
 
-  loadInfofakeData() {
-    const url = 'https://drive.google.com/uc?export=download&id=1vFwO3nG90kVrSaHkXwZEpZOEOXT9OcEq';
+  loadInfofakeData(): Observable<any> {
+    const url = 'https://www.buckapi.us/infoFake.json';
 
-    this.http.get<any>(url).pipe(
+    return this.http.get<any>(url).pipe(
       map(data => {
-        this.Infofake = data;
-        // Aquí puedes realizar el procesamiento adicional de los datos según tus necesidades
-        console.log(data);
-        console.log(JSON.stringify(this.Infofake));
-        // Devuelve los datos procesados si es necesario
+        this.info = data;
+        console.log(JSON.stringify(this.info));
         return data;
       })
-    ).subscribe(
-      data => {
-        // Aquí puedes manejar los datos procesados si es necesario
-        console.log('Datos cargados:', data);
-      },
-      error => {
-        // Aquí puedes manejar los errores si ocurre alguno durante la solicitud HTTP
-        console.error('Error al cargar los datos:', error);
-      }
     );
   }
 }

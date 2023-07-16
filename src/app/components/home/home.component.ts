@@ -1,4 +1,4 @@
-import { Component ,OnInit,AfterViewInit} from '@angular/core';
+import { Component ,OnInit,AfterViewInit,ChangeDetectorRef} from '@angular/core';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { Yeoman } from '@app/services/yeoman.service';
@@ -9,18 +9,33 @@ import { InfofakeService } from '@app/services/infofake.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements AfterViewInit {
   evenBrands: any[] = [];
   oddBrands: any[] = [];
   top:any=[];
-  categories:any={};
+  categories:any=[];
+  suggestions:any=[];
+  
   constructor( 
+    private cdr: ChangeDetectorRef,
     public yeoman:Yeoman, 
     public infofake:InfofakeService,
     public script:ScriptService) {
-      this.splitBrands();
-      this.categories=this.infofake.categories;
-      this.top=this.infofake.top;
+     
+      this.loadTop();
+    
+     }
+     loadTop() {
+      this.infofake.loadInfofakeData().subscribe((response: any) => {
+        // Asegúrate de ajustar la estructura del objeto de respuesta según corresponda
+        this.top = response.top || [];
+        this.categories=response.categories|| [];  
+        this.suggestions=response.suggestions|| [];
+        this.splitBrands();
+      });
+      // this.top=this.infofake.info.top;
+      // this.cdr.detectChanges();
      }
      config: SwiperOptions = {
       a11y: { enabled: true },
@@ -103,6 +118,7 @@ export class HomeComponent implements AfterViewInit {
       'script'
       )
       .then(data => {
+        
       })
       .catch(error => console.log(error));  
   }
