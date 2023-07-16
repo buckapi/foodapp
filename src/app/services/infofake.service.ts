@@ -16,8 +16,9 @@ export class InfofakeService {
   }
 
   loadInfofakeData(): Observable<any> {
-    const url = 'https://www.buckapi.us/infoFake.json';
-
+    const gistId = 'd47846171b737abe78956f8dd31fb177'; // Reemplaza con el ID de tu Gist
+    // const url = `https://api.github.com/gists/${gistId}`;
+      const url = 'https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/infoFake.json';
     return this.http.get<any>(url).pipe(
       map(data => {
         this.info = data;

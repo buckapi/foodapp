@@ -28,14 +28,11 @@ export class HomeComponent implements AfterViewInit {
      }
      loadTop() {
       this.infofake.loadInfofakeData().subscribe((response: any) => {
-        // Asegúrate de ajustar la estructura del objeto de respuesta según corresponda
         this.top = response.top || [];
         this.categories=response.categories|| [];  
         this.suggestions=response.suggestions|| [];
         this.splitBrands();
       });
-      // this.top=this.infofake.info.top;
-      // this.cdr.detectChanges();
      }
      config: SwiperOptions = {
       a11y: { enabled: true },
