@@ -1,0 +1,43 @@
+      <!-- bottom navbar start -->
+      <div class="navbar-menu">
+        <ul>
+          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'home' }">
+            <a routerLink="home">
+              <div class="icon">
+                <img class="unactive" src="assets/radarfood/images/svg/home.svg" alt="home" />
+                <img class="active"  src="assets/radarfood/images/svg/home-fill.svg" alt="home" />
+              </div>
+              <span class="active" >Home</span>
+            </a>
+          </li>
+          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'offers' }">
+            <a  routerLink="offers">
+              <div class="icon">
+                <img class="unactive" src="assets/radarfood/images/svg/offer.svg" alt="offer" />
+                <img class="active" src="assets/radarfood/images/svg/offer-fill.svg" alt="offer" />
+              </div>
+              <span>offers</span>
+            </a>
+          </li>
+  
+          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'cart' }">
+            <a href="cart.html">
+              <div class="icon">
+                <img class="unactive"  src="assets/radarfood/images/svg/cart.svg" alt="cart" />
+                <img class="active"  src="assets/radarfood/images/svg/cart-fill.svg" alt="cart" />
+              </div>
+              <span>Cart</span>
+            </a>
+          </li>
+          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'profile' }">
+            <a href="profile.html">
+              <div class="icon">
+                <img class="unactive"  src="assets/radarfood/images/svg/user.svg" alt="user.svg" />
+                <img class="active"  src="assets/radarfood/images/svg/user-fill.svg" alt="user-fill.svg" />
+              </div>
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- bottom navbar end -->
