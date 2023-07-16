@@ -1,12 +1,12 @@
 {
-    "name": "Radarfood",
-    "short_name": "Radarfood",
+    "name": "Foodapp",
+    "short_name": "Foodapp",
     "theme_color": "#615dfa",
     "background_color": "#615dfa",
     "display": "standalone",
     "scope": "./",
     "start_url": "./",
-    "description": "Radarfood, la mejor opción en comidas cerca de ti!",
+    "description": "Foodapp, la mejor opción en comidas cerca de ti!",
     "icons": [
       {
         "src": "assets/icons/icon-72x72.png",
