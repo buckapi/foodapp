@@ -5,12 +5,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class InfofakeService {
-  suggestions: any[] = [];
-  categories: any[] = [];
-  brands: any[] = [];
-  top: any[] = [];
   info: any = [];
-
   constructor(private http: HttpClient) {
     this.loadInfofakeData();
   }

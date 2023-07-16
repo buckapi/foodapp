@@ -16,6 +16,8 @@ export class HomeComponent implements AfterViewInit {
   top:any=[];
   categories:any=[];
   suggestions:any=[];
+  brands:any=[];
+  banners:any=[];
   
   constructor( 
     private cdr: ChangeDetectorRef,
@@ -31,10 +33,12 @@ export class HomeComponent implements AfterViewInit {
         this.top = response.top || [];
         this.categories=response.categories|| [];  
         this.suggestions=response.suggestions|| [];
+        this.brands=response.brands|| [];
+        this.banners=response.banners|| [];
         this.splitBrands();
       });
      }
-     config: SwiperOptions = {
+     configBanner: SwiperOptions = {
       a11y: { enabled: true },
       direction: 'horizontal',
       slidesPerView: 1,
@@ -42,7 +46,7 @@ export class HomeComponent implements AfterViewInit {
       mousewheel: false,
       scrollbar: false,
       pagination: true,
-      autoplay: { delay: 2000 },
+      autoplay: { delay: 4000 },
  
       spaceBetween: 5,
       navigation: {
@@ -99,11 +103,11 @@ export class HomeComponent implements AfterViewInit {
 
     splitBrands(): void {
       // Ordena alfabéticamente las marcas en el array this.infofake.brands
-      this.infofake.brands.sort((a, b) => a.name.localeCompare(b.name));    
+      this.brands.sort((a:any, b:any) => a.name.localeCompare(b.name));    
       // Filtra las marcas con índices pares y las asigna al array this.evenBrands
-      this.evenBrands = this.infofake.brands.filter((_, index) => index % 2 === 0);    
+      this.evenBrands = this.brands.filter((_:any, index:any) => index % 2 === 0);    
       // Filtra las marcas con índices impares y las asigna al array this.oddBrands
-      this.oddBrands = this.infofake.brands.filter((_, index) => index % 2 !== 0);
+      this.oddBrands = this.brands.filter((_:any, index:any) => index % 2 !== 0);
     }
 
      ngAfterViewInit(): void {  
