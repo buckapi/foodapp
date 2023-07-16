@@ -1,8 +1,8 @@
 {
     "name": "Foodapp",
     "short_name": "Foodapp",
-    "theme_color": "#615dfa",
-    "background_color": "#615dfa",
+    "theme_color": "#ff0000",
+    "background_color": "#ff0000",
     "display": "standalone",
     "scope": "./",
     "start_url": "./",
