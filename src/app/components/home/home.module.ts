@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
-import { InfofakeS } from '@app/services/infofake.service';
+import { InfofakeService } from '@app/services/infofake.service';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxUsefulSwiperModule
   ],
   providers:[
-    InfofakeS
+    InfofakeService
   ]
 })
 export class HomeModule { }

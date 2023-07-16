@@ -3,7 +3,7 @@ import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { Yeoman } from '@app/services/yeoman.service';
 import { SwiperOptions } from 'swiper';
-import { InfofakeS } from '@app/services/infofake.service';
+import { InfofakeService } from '@app/services/infofake.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,7 +16,7 @@ export class HomeComponent implements AfterViewInit {
   categories:any={};
   constructor( 
     public yeoman:Yeoman, 
-    public infofake:InfofakeS,
+    public infofake:InfofakeService,
     public script:ScriptService) {
       this.splitBrands();
       this.categories=this.infofake.categories;
