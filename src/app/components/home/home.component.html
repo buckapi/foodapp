@@ -31,43 +31,16 @@
         <div class="custom-container">
           <div class="title">
             <h3 class="mt-0">Por categoría</h3>
-            <a href="categories.html">Ver todos</a>
-          </div>
-  
+            <a >Ver todos</a>
+          </div>  
           <div class="swiper categories">
-        
-
-            <swiper [config]="config2" >
+            <swiper [config]="configCategories" >
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="listing.html" class="food-categories">
-                    <img class="img-fluid categories-img" src="assets/radarfood/images/product/pizaa.png" alt="pizza" />
+                <div class="swiper-slide" *ngFor="let category of categories;let i = index">
+                  <a  class="food-categories">
+                    <img class="img-fluid categories-img" src="{{category.images[0]}}" alt="pizza" />
                   </a>
-                  <h6>Pizza</h6>
-                </div>
-                <div class="swiper-slide">
-                  <a href="listing.html" class="food-categories">
-                    <img class="img-fluid categories-img" src="assets/radarfood/images/product/burger.png" alt="burger" />
-                  </a>
-                  <h6>Hamburguesa</h6>
-                </div>
-                <div class="swiper-slide">
-                  <a href="listing.html" class="food-categories">
-                    <img class="img-fluid categories-img" src="assets/radarfood/images/product/boritto.png" alt="boritto" />
-                  </a>
-                  <h6>Burritos</h6>
-                </div>
-                <div class="swiper-slide">
-                  <a href="listing.html" class="food-categories">
-                    <img class="img-fluid categories-img" src="assets/radarfood/images/product/hotdog.png" alt="hotdog" />
-                  </a>
-                  <h6>Hot Dogs</h6>
-                </div>
-                <div class="swiper-slide">
-                  <a href="listing.html" class="food-categories">
-                    <img class="img-fluid categories-img" src="assets/radarfood/images/product/noodles.png" alt="noodles" />
-                  </a>
-                  <h6>Noodles</h6>
+                  <h6>{{category.name}}</h6>
                 </div>
                 <!-- <div class="swiper-pagination"></div> -->
               </div>
@@ -78,7 +51,7 @@
       </section>
       <!-- Food Categories section end -->
   
-      <!-- product section start -->
+      <!-- suggestions section start -->
       <section class="section-t-space">
         <div class="custom-container">
           <div class="title">
@@ -117,72 +90,28 @@
           </div>
         </div>
       </section>
-      <!-- product section start -->
+      <!-- suggesitons section start -->
   
       <!-- Brand section start -->
       <section class="section-t-space">
         <div class="custom-container">
           <div class="title">
             <h3 class="mt-0">Franquicias</h3>
-            <a href="brand-list.html">Ver todos</a>
-          </div>
-  
+            <a >Ver todos</a>
+          </div>  
           <div class="swiper brands-logo">
-            <swiper [config]="config4" >
+            <swiper [config]="configBrands" >
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="details.html" class="food-brands">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand1.png" alt="brand1" />
+                <div class="swiper-slide" *ngFor="let brand of evenBrands; let i = index">
+                  <a  class="food-brands">
+                    <img class="img-fluid brand-img" src="{{brand.images[0]}}" alt="brand1" />
                   </a>
-                  <h4>La Pino’z</h4>
-    
-                  <a href="details.html" class="food-brands mt-2">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand6.png" alt="brand6" />
+                  <h4>{{brand.name}}</h4>    
+                  <a  class="food-brands mt-2">
+                    <img class="img-fluid brand-img" src="{{oddBrands[i].images[0]}}" alt="brand6" />
                   </a>
-                  <h4>Burger King</h4>
-                </div>
-    
-                <div class="swiper-slide">
-                  <a href="details.html" class="food-brands">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand2.png" alt="brand2" />
-                  </a>
-                  <h4>McDonald's</h4>
-                  <a href="details.html" class="food-brands mt-2">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand7.png" alt="brand7" />
-                  </a>
-                  <h4>Subway</h4>
-                </div>
-    
-                <div class="swiper-slide">
-                  <a href="details.html" class="food-brands">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand3.png" alt="brand3" />
-                  </a>
-                  <h4>Starbucks</h4>
-                  <a href="details.html" class="food-brands mt-2">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand8.png" alt="brand8" />
-                  </a>
-                  <h4>Domino's</h4>
-                </div>
-                <div class="swiper-slide">
-                  <a href="details.html" class="food-brands">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand4.png" alt="brand4" />
-                  </a>
-                  <h4>Pizza Hut</h4>
-                  <a href="details.html" class="food-brands mt-2">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand9.png" alt="brand9" />
-                  </a>
-                  <h4>Taco Bell</h4>
-                </div>
-                <div class="swiper-slide">
-                  <a href="details.html" class="food-brands">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand5.png" alt="brand5" />
-                  </a>
-                  <h4>Wendy's</h4>
-                  <a href="details.html" class="food-brands mt-2">
-                    <img class="img-fluid brand-img" src="assets/radarfood/images/icons/brand10.png" alt="brand10" />
-                  </a>
-                  <h4>Chipotle</h4>
-                </div>
+                  <h4>{{oddBrands[i].name}}</h4>
+                </div>    
               </div>
             </swiper>
           </div>
@@ -190,7 +119,7 @@
       </section>
       <!-- Brand section start -->
   
-      <!-- Explore Restaurants section start -->
+      <!-- TOP 5  Cocinas section start -->
       <section class="section-t-space">
         <div class="custom-container">
           <div class="title">
@@ -451,7 +380,7 @@
           </div>
         </div>
       </section>
-      <!-- Explore Restaurants section end -->
+      <!-- TOP 5  Cocinas section end -->
   
       <!-- empty section start -->
       <section class="empty-section section-t-space section-b-space">

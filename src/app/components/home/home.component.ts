@@ -10,12 +10,15 @@ import { Infofake } from '@app/services/infofake.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements AfterViewInit {
-
+  evenBrands: any[] = [];
+  oddBrands: any[] = [];
+  categories:any={};
   constructor( 
     public yeoman:Yeoman, 
     public infofake:Infofake,
     public script:ScriptService) {
-    
+      this.splitBrands();
+      this.categories=this.infofake.categories;
      }
      config: SwiperOptions = {
       a11y: { enabled: true },
@@ -33,7 +36,7 @@ export class HomeComponent implements AfterViewInit {
         prevEl: '.swiper-button-prev'
       },
     }; 
-    config2: SwiperOptions = {
+    configCategories: SwiperOptions = {
       a11y: { enabled: true },
       direction: 'horizontal',
       slidesPerView: 4,
@@ -64,7 +67,7 @@ export class HomeComponent implements AfterViewInit {
       },
     }; 
       
-    config4: SwiperOptions = {
+    configBrands: SwiperOptions = {
       a11y: { enabled: true },
       direction: 'horizontal',
       slidesPerView: 4,
@@ -79,6 +82,16 @@ export class HomeComponent implements AfterViewInit {
         prevEl: '.swiper-button-prev'
       },
     };  
+
+    splitBrands(): void {
+      // Ordena alfabéticamente las marcas en el array this.infofake.brands
+      this.infofake.brands.sort((a, b) => a.name.localeCompare(b.name));    
+      // Filtra las marcas con índices pares y las asigna al array this.evenBrands
+      this.evenBrands = this.infofake.brands.filter((_, index) => index % 2 === 0);    
+      // Filtra las marcas con índices impares y las asigna al array this.oddBrands
+      this.oddBrands = this.infofake.brands.filter((_, index) => index % 2 !== 0);
+    }
+
      ngAfterViewInit(): void {  
       this.yeoman.virtualRoute="home";      
       this.script.load(  
