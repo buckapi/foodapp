@@ -12,6 +12,7 @@ import { Infofake } from '@app/services/infofake.service';
 export class HomeComponent implements AfterViewInit {
   evenBrands: any[] = [];
   oddBrands: any[] = [];
+  top:any=[];
   categories:any={};
   constructor( 
     public yeoman:Yeoman, 
@@ -19,6 +20,7 @@ export class HomeComponent implements AfterViewInit {
     public script:ScriptService) {
       this.splitBrands();
       this.categories=this.infofake.categories;
+      this.top=this.infofake.top;
      }
      config: SwiperOptions = {
       a11y: { enabled: true },

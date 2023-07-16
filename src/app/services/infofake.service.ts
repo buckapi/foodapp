@@ -27,6 +27,12 @@ export class Infofake {
     { name: "Wendy's", images: ["assets/radarfood/images/icons/brand5.png"] },
     { name: "Chipotle", images: ["assets/radarfood/images/icons/brand10.png"] }
 ];
- 
+  top = [
+    { name: "Ben & Floren", off: 150, upto: 2, foodItem: "Chicken quesadilla, avocado...", reviews: 3.7, place: "Ontario", price: 5, distance: 2, time: 25, images: ["assets/radarfood/images/product/vp1.png"] },
+    { name: "242 Pizza", off: 150, upto: 10, foodItem: "Detroit style, deep garlic loaf...", reviews: 4.5, place: "Toronto", price: 19, distance: 3, time: 18, images: ["assets/radarfood/images/product/vp2.png"] },
+    { name: "AWS-USA", off: 0, upto: 0, foodItem: "Classic bacon & eggs, sausage...", reviews: 4.0, place: "New York", price: 3, distance: 2.5, time: 35, images: ["assets/radarfood/images/product/vp3.png"] },
+    { name: "Cactus Club Cafe", off: 0, upto: 0, foodItem: "Spicy ahi roll, prawn crunch..", reviews: 5.0, place: "Victoria", price: 6, distance: 2.6, time: 20, images: ["assets/radarfood/images/product/vp4.png"] },
+    { name: "Moxie Cafe", off: 50, upto: 20, foodItem: "Crispy bottom vegan potsticker...", reviews: 4.3, place: "Toronto", price: 5, distance: 1, time: 15, images: ["assets/radarfood/images/product/vp5.png"] }
+  ];
   constructor() {}
 }
