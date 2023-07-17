@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/webmanifest",
   "name": "Foodapp",
   "short_name": "Foodapp",
   "theme_color": "#ff0000",
