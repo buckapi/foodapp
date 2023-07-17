@@ -28,13 +28,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/radarfood/js/bootstrap.bundle.min.js",
-              "src/assets/radarfood/js/swiper-bundle.min.js",
-              "src/assets/radarfood/js/custom-swiper.js",
-              "src/assets/radarfood/js/bootstrap.bundle.min.js",
-              "src/assets/radarfood/js/swiper-bundle.min.js",
-              "src/assets/radarfood/js/custom-swiper.js",
-              "src/assets/radarfood/js/script.js"
+             
             ],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"

@@ -1,23 +1,13 @@
-/*========================
- Manifest js
- ==========================*/
-// window.onload = () => {
-//   'use strict';
-//   if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker
-//       .register('sw.js');
-//   }
-// }
 
 /*=====================
     wishlist added start
 ==========================*/
-const divs = document.querySelectorAll('.like-icon');
-divs.forEach(el => el.addEventListener('click', event => {
-  event.target.parentNode.classList.toggle("animate");
-  event.target.parentNode.classList.toggle("active");
-  event.target.parentNode.classList.toggle("inactive");
-}));
+// const divs = document.querySelectorAll('.like-icon');
+// divs.forEach(el => el.addEventListener('click', event => {
+//   event.target.parentNode.classList.toggle("animate");
+//   event.target.parentNode.classList.toggle("active");
+//   event.target.parentNode.classList.toggle("inactive");
+// }));
 
 
 /*====================

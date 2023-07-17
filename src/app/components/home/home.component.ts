@@ -113,10 +113,10 @@ export class HomeComponent implements AfterViewInit {
      ngAfterViewInit(): void {  
       this.yeoman.virtualRoute="home";      
       this.script.load(  
-      // 'bootstrap',
-      // 'bundle',
-      // 'swiper',
-      // 'script'
+      'bootstrap',
+      'bundle',
+      'swiper',
+      'script'
       )
       .then(data => {
         
