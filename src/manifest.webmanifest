@@ -1,11 +1,12 @@
 {
-    "name": "Foodapp",
-    "short_name": "Foodapp",
-    "theme_color": "#ff0000",
-    "background_color": "#ff0000",
-    "display": "standalone",
-    "scope": "./",
-    "start_url": "./",
+  "$schema": "https://json.schemastore.org/webmanifest",
+  "name": "Foodapp",
+  "short_name": "Foodapp",
+  "theme_color": "#ff0000",
+  "background_color": "#ff0000",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
     "description": "Foodapp, la mejor opción en comidas cerca de ti!",
     "icons": [
       {
