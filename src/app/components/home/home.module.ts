@@ -6,11 +6,14 @@ import { HomeComponent } from './home.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { InfofakeService } from '@app/services/infofake.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     HomeComponent
   ],
   imports: [
+    RouterModule,
     HttpClientModule,
     CommonModule,
     HomeRoutingModule,

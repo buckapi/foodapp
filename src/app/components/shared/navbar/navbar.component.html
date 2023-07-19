@@ -1,5 +1,5 @@
       <!-- bottom navbar start -->
-      <div class="navbar-menu">
+      <div class="navbar-menu"  *ngIf="!isCategoriesRoute()">
         <ul>
           <li [ngClass]="{ 'active': yeoman.virtualRoute === 'home' }">
             <a routerLink="home">

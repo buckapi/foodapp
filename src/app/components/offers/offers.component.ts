@@ -1,13 +1,54 @@
 import { Component, OnInit ,AfterViewInit} from '@angular/core';
 import { Yeoman } from '@app/services/yeoman.service';
+import { ScriptService } from '@app/services/script.service';
+import { ScriptStore } from '@app/services/script.store';
+import { SwiperOptions } from 'swiper';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.css']
 })
 export class OffersComponent implements AfterViewInit {
+  configOffer: SwiperOptions = {
+    effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  loop: true,
+  spaceBetween: 0,
+  slidesPerView:1.8,
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+    
+  },pagination: {
+    el: ".swiper-pagination",
+  },
+
+
+  
+    // a11y: { enabled: true },
+    // direction: 'horizontal',
+    // slidesPerView: 3,
+    // keyboard: true,
+    // mousewheel: false,
+    // scrollbar: false,
+    // pagination: true,
+    // autoplay: { delay: 1000 },
+
+    // spaceBetween: 0,
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev'
+    // },
+  }; 
+
+
 
   constructor(
+    public script:ScriptService,
     public yeoman:Yeoman
   ) { }
 
@@ -15,6 +56,16 @@ export class OffersComponent implements AfterViewInit {
   }
   ngAfterViewInit(): void {  
     this.yeoman.virtualRoute="offers";      
-   
+    this.script.load(  
+    'bootstrap',
+    'bundle',
+    'swiper',
+    'script'
+    )
+    .then(data => {
+      
+    })
+    .catch(error => console.log(error));  
 }
+
 }

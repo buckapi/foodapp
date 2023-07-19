@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { OffersRoutingModule } from './offers-routing.module';
 import { OffersComponent } from './offers.component';
-
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { OffersComponent } from './offers.component';
   ],
   imports: [
     CommonModule,
-    OffersRoutingModule
+    OffersRoutingModule,
+    NgxUsefulSwiperModule
   ]
 })
 export class OffersModule { }

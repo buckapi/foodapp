@@ -1,6 +1,9 @@
 
-    <!-- header start -->
-    <header class="section-t-space">
+    <!-- header para inicio -->
+    <header class="section-t-space"  *ngIf="!(router.url.includes('categories') 
+    || router.url.includes('foodListing')
+    || router.url.includes('offers')
+    )">
         <div class="custom-container">
           <div class="header">
             <div class="head-content">
@@ -19,6 +22,26 @@
             </a>
           </div>
         </div>
-      </header>
-      <!-- header end -->
+    </header>
+    <app-search  *ngIf="!(router.url.includes('categories') 
+    || router.url.includes('foodListing')
+    || router.url.includes('offers')
+    )"></app-search>
+    
+    <!-- header para categorias -->
+    <header class="section-t-space"  *ngIf="(router.url.includes('categories') 
+    || router.url.includes('foodListing')
+    
+    )">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a routerLink="">
+            <i class="ri-arrow-left-s-line"></i>
+          </a>
+          <h2>Categorías de comida</h2>
+        </div>
+      </div>
+    </header>
+    
+    
   

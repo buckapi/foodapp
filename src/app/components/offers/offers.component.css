@@ -1,0 +1,16 @@
+/* CSS personalizado con mayor especificidad usando el ID */
+#custom-swiper .swiper-slide-shadow-left,
+#custom-swiper .swiper-slide-shadow-right {
+  background-image: none !important;
+  box-shadow: none !important;
+}
+#custom-swiper .swiper-slide .swiper-slide-shadow-left {
+    box-shadow: none !important;
+  }
+
+   .swiper-slide .swiper-slide-shadow-left{
+    box-shadow: none !important;
+  }
+   .swiper-slide .swiper-slide-shadow-right{
+    box-shadow: none !important;
+  }

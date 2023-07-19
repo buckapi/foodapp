@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
     SidebarComponent,
     SearchComponent,
     NavbarComponent
+    
   ],
   imports: [
     NgxUsefulSwiperModule,

@@ -4,6 +4,8 @@ import { ScriptStore } from '@app/services/script.store';
 import { Yeoman } from '@app/services/yeoman.service';
 import { SwiperOptions } from 'swiper';
 import { InfofakeService } from '@app/services/infofake.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,7 +25,9 @@ export class HomeComponent implements AfterViewInit {
     private cdr: ChangeDetectorRef,
     public yeoman:Yeoman, 
     public infofake:InfofakeService,
-    public script:ScriptService) {
+    public script:ScriptService,
+    private router:Router
+    ) {
      
       this.loadTop();
     
