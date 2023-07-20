@@ -15,6 +15,9 @@ export class NavbarComponent implements OnInit {
   isCategoriesRoute(): boolean {
     return this.router.url.includes('categories');
   }
+  setVirtualRoute(route:any){
+    this.yeoman.virtualRoute=route;
+  }
   ngOnInit(): void {
   }
 

@@ -1,0 +1,63 @@
+
+      <section class="section-t-space">
+        <div class="custom-container">
+          <div class="title">
+            <h3 class="mt-0">Cocinas TOP 5 en tus cercanías</h3>
+            <a href="" >Ver todos</a>
+          </div>
+          <div class="row gy-3">
+            <div class="col-12" *ngFor="let kitchen of yeoman.top;let i =index">
+              <div class="vertical-product-box">
+                <div class="vertical-box-img">
+                  <a href="details.html">
+                    <img class="img-fluid img" src="{{kitchen.images[0]}}" alt="vp5" />
+                  </a>
+                  <div class="like-icon">
+                    <i class="ri-heart-3-line outline-icon"></i>
+                    <i class="ri-heart-3-fill fill-icon"></i>
+                    <div class="effect-group">
+                      <span class="effect"></span>
+                      <span class="effect"></span>
+                      <span class="effect"></span>
+                      <span class="effect"></span>
+                      <span class="effect"></span>
+                    </div>
+                  </div>
+                  <div class="offers" [hidden]="kitchen.upto<=0">
+                    <h6 [hidden]="kitchen.upto<=0">upto $ {{kitchen.upto}}</h6>
+                    <h2 [hidden]="kitchen.off<=0">{{kitchen.off}}% OFF</h2>
+                  </div>
+                </div>
+  
+                <div class="vertical-box-details">
+                  <div class="vertical-box-head">
+                    <div class="restaurant">
+                      <a href="details.html">
+                        <h5>{{kitchen.name}}</h5>
+                      </a>
+                    </div>
+                    <h6 class="food-items">{{kitchen.foodItem }}</h6>
+  
+                    <h6 class="rating-star">
+                      <span class="star"><i class="ri-star-s-fill"></i></span> {{kitchen.reviews}} (1k+ Reviews)
+                    </h6>
+                  </div>
+                  <div class="location-distance">
+                    <div class="location">
+                      <h6 class="place">Ontario</h6>
+                      <h6 class="pt-2 pb-2"><span class="theme-color">${{kitchen.price}}</span> for one</h6>
+                    </div>
+                    <div class="distance">
+                      <ul>
+                        <li><i class="ri-map-pin-fill theme-color"></i>{{kitchen.distance}} km</li>
+                        <li><i class="ri-time-fill theme-color"></i> {{kitchen.time}} min</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </section>

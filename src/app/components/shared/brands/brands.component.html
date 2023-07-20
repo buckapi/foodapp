@@ -1,0 +1,24 @@
+<section class="section-t-space">
+    <div class="custom-container">
+      <div class="title">
+        <h3 class="mt-0">Franquicias</h3>
+        <a href="" >Ver todos</a>
+      </div>  
+      <div class="swiper brands-logo">
+        <swiper [config]="configBrands" >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let brand of yeoman.evenBrands; let i = index">
+              <a  class="food-brands">
+                <img class="img-fluid brand-img" src="{{brand.images[0]}}" alt="brand1" />
+              </a>
+              <h4>{{brand.name}}</h4>     
+              <a  class="food-brands mt-2">
+                <img class="img-fluid brand-img" src="{{yeoman.oddBrands[i].images[0]}}" alt="brand6" />
+              </a>
+              <h4>{{yeoman.oddBrands[i].name}}</h4>
+            </div>    
+          </div>
+        </swiper>
+      </div>
+    </div>
+  </section>

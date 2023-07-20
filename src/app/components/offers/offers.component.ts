@@ -3,6 +3,9 @@ import { Yeoman } from '@app/services/yeoman.service';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
+import { TopComponent } from '../shared/top/top.component';
+import { Router } from '@angular/router';
+TopComponent
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
@@ -10,6 +13,7 @@ import { SwiperOptions } from 'swiper';
 })
 export class OffersComponent implements AfterViewInit {
   isActive: boolean = true;
+
   configOffer: SwiperOptions = {
     effect: "coverflow",
   grabCursor: true,
@@ -27,48 +31,36 @@ export class OffersComponent implements AfterViewInit {
   },pagination: {
     el: ".swiper-pagination",
   },
-
-
-  
-    // a11y: { enabled: true },
-    // direction: 'horizontal',
-    // slidesPerView: 3,
-    // keyboard: true,
-    // mousewheel: false,
-    // scrollbar: false,
-    // pagination: true,
-    // autoplay: { delay: 1000 },
-
-    // spaceBetween: 0,
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev'
-    // },
   }; 
 
-
-
   constructor(
+    public router:Router,
+  public topComponent:TopComponent,
     public script:ScriptService,
     public yeoman:Yeoman
-  ) { }
+  ) {
+
+    
+   }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {  
-    this.yeoman.virtualRoute="offers";      
-    this.script.load(  
-    'bootstrap',
-    'bundle',
-    'swiper',
-    'script'
-    )
-    .then(data => {
+   this.yeoman.virtualRoute="offers";
+    this.toggleCustomClass();
+     this.yeoman.virtualRoute="offers";      
+    // this.script.load(  
+    // 'bootstrap',
+    // 'bundle',
+    // 'swiper',
+    // 'script'
+    // )
+    // .then(data => {
       
-    })
-    .catch(error => console.log(error));  
+    // })
+    // .catch(error => console.log(error));  
 }
-toggleCustomClass() {
-  this.isActive = !this.isActive;
-}
+    toggleCustomClass() {
+      this.isActive = !this.isActive;
+    }
 }

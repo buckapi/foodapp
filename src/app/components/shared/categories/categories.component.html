@@ -1,0 +1,22 @@
+<section class="section-t-space">
+    <div class="custom-container">
+      <div class="title">
+        <h3 class="mt-0">Por categoría</h3>
+        <a routerLink="/categories">Ver todos</a>
+      </div>  
+      <div class="swiper categories">
+        <swiper [config]="configCategories" >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let category of yeoman.categories;let i = index">
+              <a  class="food-categories">
+                <img class="img-fluid categories-img" src="{{category.images[0]}}" alt="pizza" />
+              </a>
+              <h6>{{category.name}}</h6>
+            </div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+          <!-- <div class="swiper-pagination"></div> -->
+        </swiper>  
+      </div>
+    </div>
+  </section>

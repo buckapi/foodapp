@@ -4,7 +4,7 @@
         <div class="custom-container">
           <swiper [config]="configBanner" >
             <div class="swiper-wrapper">
-              <div class="swiper-slide" *ngFor="let banner of banners">
+              <div class="swiper-slide" *ngFor="let banner of yeoman.banners">
                 <img class="img-fluid banner-img" src="{{banner.images[0]}}" alt="banner1" />
               </div>
               <!-- <div class="swiper-pagination"></div> -->
@@ -20,170 +20,29 @@
       <!-- banner section end -->
   
       <!-- Food Categories section start -->
-      <section class="section-t-space">
-        <div class="custom-container">
-          <div class="title">
-            <h3 class="mt-0">Por categoría</h3>
-            <a routerLink="/categories">Ver todos</a>
-          </div>  
-          <div class="swiper categories">
-            <swiper [config]="configCategories" >
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" *ngFor="let category of categories;let i = index">
-                  <a  class="food-categories">
-                    <img class="img-fluid categories-img" src="{{category.images[0]}}" alt="pizza" />
-                  </a>
-                  <h6>{{category.name}}</h6>
-                </div>
-                <!-- <div class="swiper-pagination"></div> -->
-              </div>
-              <!-- <div class="swiper-pagination"></div> -->
-            </swiper>  
-          </div>
-        </div>
-      </section>
+      <app-categories></app-categories>
       <!-- Food Categories section end -->
   
       <!-- suggestions section start -->
-      <section class="section-t-space">
-        <div class="custom-container">
-          <div class="title">
-            <h3 class="mt-0">Recomendado para Tí</h3>
-            <a routerLink="/foodListing">Ver todos</a>
-          </div>
-  
-          <div class="swiper products">
-            <swiper [config]="config3" >
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" *ngFor="let suggestion of suggestions; let i =index ">
-                  <div class="product-box product-box-bg">
-                    <a  class="product-box-img">
-                      <img class="img-fluid" src="{{suggestion.images[0]}}" alt="p1" />
-                    </a>
-                    <div class="product-box-detail">
-                      <h5>{{suggestion.name}}</h5>
-                      <ul class="timing">
-                        <li>
-                          <span class="star"><i class="ri-star-s-fill"></i></span> 3.7
-                        </li>
-                        <li>20 min</li>
-                      </ul>
-                      <div class="bottom-panel">
-                        <div class="price">${{suggestion.price}}</div>
-                        <a href="cart.html" class="cart mb-0">
-                          <i class="ri-shopping-cart-2-fill"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-               
-              </div>
-            </swiper>
-          </div>
-        </div>
-      </section>
+     <app-suggestions></app-suggestions>
       <!-- suggesitons section start -->
   
       <!-- Brand section start -->
-      <section class="section-t-space">
-        <div class="custom-container">
-          <div class="title">
-            <h3 class="mt-0">Franquicias</h3>
-            <a href="" >Ver todos</a>
-          </div>  
-          <div class="swiper brands-logo">
-            <swiper [config]="configBrands" >
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" *ngFor="let brand of evenBrands; let i = index">
-                  <a  class="food-brands">
-                    <img class="img-fluid brand-img" src="{{brand.images[0]}}" alt="brand1" />
-                  </a>
-                  <h4>{{brand.name}}</h4>    
-                  <a  class="food-brands mt-2">
-                    <img class="img-fluid brand-img" src="{{oddBrands[i].images[0]}}" alt="brand6" />
-                  </a>
-                  <h4>{{oddBrands[i].name}}</h4>
-                </div>    
-              </div>
-            </swiper>
-          </div>
-        </div>
-      </section>
+     <app-brands></app-brands>
       <!-- Brand section start -->
   
       <!-- TOP 5  Cocinas section start -->
-      <section class="section-t-space">
-        <div class="custom-container">
-          <div class="title">
-            <h3 class="mt-0">Cocinas TOP 5 en tus cercanías</h3>
-            <a href="" >Ver todos</a>
-          </div>
-          <div class="row gy-3">
-            <div class="col-12" *ngFor="let kitchen of top;let i =index">
-              <div class="vertical-product-box">
-                <div class="vertical-box-img">
-                  <a href="details.html">
-                    <img class="img-fluid img" src="{{kitchen.images[0]}}" alt="vp5" />
-                  </a>
-                  <div class="like-icon">
-                    <i class="ri-heart-3-line outline-icon"></i>
-                    <i class="ri-heart-3-fill fill-icon"></i>
-                    <div class="effect-group">
-                      <span class="effect"></span>
-                      <span class="effect"></span>
-                      <span class="effect"></span>
-                      <span class="effect"></span>
-                      <span class="effect"></span>
-                    </div>
-                  </div>
-                  <div class="offers" [hidden]="kitchen.upto<=0">
-                    <h6 [hidden]="kitchen.upto<=0">upto $ {{kitchen.upto}}</h6>
-                    <h2 [hidden]="kitchen.off<=0">{{kitchen.off}}% OFF</h2>
-                  </div>
-                </div>
-  
-                <div class="vertical-box-details">
-                  <div class="vertical-box-head">
-                    <div class="restaurant">
-                      <a href="details.html">
-                        <h5>{{kitchen.name}}</h5>
-                      </a>
-                    </div>
-                    <h6 class="food-items">{{kitchen.foodItem }}</h6>
-  
-                    <h6 class="rating-star">
-                      <span class="star"><i class="ri-star-s-fill"></i></span> {{kitchen.reviews}} (1k+ Reviews)
-                    </h6>
-                  </div>
-                  <div class="location-distance">
-                    <div class="location">
-                      <h6 class="place">Ontario</h6>
-                      <h6 class="pt-2 pb-2"><span class="theme-color">${{kitchen.price}}</span> for one</h6>
-                    </div>
-                    <div class="distance">
-                      <ul>
-                        <li><i class="ri-map-pin-fill theme-color"></i>{{kitchen.distance}} km</li>
-                        <li><i class="ri-time-fill theme-color"></i> {{kitchen.time}} min</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-          </div>
-        </div>
-      </section>
+      <app-top></app-top>
+      
       <!-- TOP 5  Cocinas section end -->
   
       <!-- empty section start -->
-      <section class="empty-section section-t-space section-b-space">
+      <!-- <section class="empty-section section-t-space section-b-space">
         <div class="custom-container">
           <h2>Tastyp!</h2>
           <h5>Lo más sabroso, cerca de tí</h5>
         </div>
-      </section>
+      </section> -->
       <!-- empty section end -->
   
       <!-- filter offcanvas start -->

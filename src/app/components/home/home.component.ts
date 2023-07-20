@@ -5,6 +5,16 @@ import { Yeoman } from '@app/services/yeoman.service';
 import { SwiperOptions } from 'swiper';
 import { InfofakeService } from '@app/services/infofake.service';
 import { Router } from '@angular/router';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { TopComponent } from '../shared/top/top.component';
+
+// import { TopComponent } from '../shared/top/top.component';
+// import { TopComponent } from '../shared/top/top.component';
+
+// import { SharedComponent } from '../shared/shared.component';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { BrandsComponent } from '../shared/brands/brands.component';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +23,8 @@ import { Router } from '@angular/router';
 })
 
 export class HomeComponent implements AfterViewInit {
+  yeomanTop$: Observable<any> | undefined; // Inicializar como undefined
+
   evenBrands: any[] = [];
   oddBrands: any[] = [];
   top:any=[];
@@ -22,6 +34,9 @@ export class HomeComponent implements AfterViewInit {
   banners:any=[];
   
   constructor( 
+    public topComponent:TopComponent,
+    public brandsComponent:BrandsComponent,
+    // public sharedComponent:SharedComponent,
     private cdr: ChangeDetectorRef,
     public yeoman:Yeoman, 
     public infofake:InfofakeService,
@@ -29,19 +44,33 @@ export class HomeComponent implements AfterViewInit {
     private router:Router
     ) {
      
-      this.loadTop();
+      // this.sharedComponent.loadTop();
     
      }
-     loadTop() {
-      this.infofake.loadInfofakeData().subscribe((response: any) => {
-        this.top = response.top || [];
-        this.categories=response.categories|| [];  
-        this.suggestions=response.suggestions|| [];
-        this.brands=response.brands|| [];
-        this.banners=response.banners|| [];
-        this.splitBrands();
-      });
-     }
+    //  loadTop() {
+    //   this.infofake.loadInfofakeData().subscribe((response: any) => {
+    //     this.yeoman.top = response.top || [];
+    //     this.yeoman.categories=response.categories|| [];  
+    //     this.yeoman.suggestions=response.suggestions|| [];
+    //     this.yeoman.brands=response.brands|| [];
+    //     this.yeoman.banners=response.banners|| [];
+    //     this.splitBrands();
+    //   });
+    //  }
+    //  loadTopAlt() {
+    //   this.infofake.loadInfofakeData().subscribe((response: any) => {
+    //     // Acceder solo a la propiedad data.brands
+    //     this.yeoman.brands = response?.data?.brands || [];
+    
+    //     // Resto del código...
+    //     this.yeoman.top = response?.top || [];
+    //     this.yeoman.categories = response?.categories || [];
+    //     this.yeoman.suggestions = response?.suggestions || [];
+    //     this.yeoman.banners = response?.banners || [];
+    //     this.splitBrands();
+    //   });
+    // }
+    
      configBanner: SwiperOptions = {
       a11y: { enabled: true },
       direction: 'horizontal',
@@ -58,74 +87,34 @@ export class HomeComponent implements AfterViewInit {
         prevEl: '.swiper-button-prev'
       },
     }; 
-    configCategories: SwiperOptions = {
-      a11y: { enabled: true },
-      direction: 'horizontal',
-      slidesPerView: 4,
-      keyboard: true,
-      mousewheel: false,
-      scrollbar: false,
-      autoplay: { delay: 2000 },
-      pagination: false,
-      spaceBetween: 5,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-    };  
-    config3: SwiperOptions = {
-      a11y: { enabled: true },
-      direction: 'horizontal',
-      slidesPerView: 2,
-      keyboard: true,
-      mousewheel: false,
-      scrollbar: false,
-       autoplay: { delay: 1000 },
-      pagination: false,
-      spaceBetween: 5,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-    }; 
+   
+
       
-    configBrands: SwiperOptions = {
-      a11y: { enabled: true },
-      direction: 'horizontal',
-      slidesPerView: 4,
-      keyboard: true,
-      mousewheel: false,
-      scrollbar: false,
-       autoplay: { delay: 1500 },
-      pagination: false,
-      spaceBetween: 5,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-    };  
+  
 
-    splitBrands(): void {
-      // Ordena alfabéticamente las marcas en el array this.infofake.brands
-      this.brands.sort((a:any, b:any) => a.name.localeCompare(b.name));    
-      // Filtra las marcas con índices pares y las asigna al array this.evenBrands
-      this.evenBrands = this.brands.filter((_:any, index:any) => index % 2 === 0);    
-      // Filtra las marcas con índices impares y las asigna al array this.oddBrands
-      this.oddBrands = this.brands.filter((_:any, index:any) => index % 2 !== 0);
-    }
-
+  
+  
      ngAfterViewInit(): void {  
+      this.yeomanTop$ = this.infofake.loadInfofakeData().pipe(
+        tap((response: any) => {
+          // console.log("HOAAAA" +response)
+          this.yeoman.top=response.top;
+          // Resto del código...
+        })
+      );
+
+
       this.yeoman.virtualRoute="home";      
-      this.script.load(  
-      'bootstrap',
-      'bundle',
-      'swiper',
-      'script'
-      )
-      .then(data => {
+      // this.script.load(  
+      // 'bootstrap',
+      // 'bundle',
+      // 'swiper',
+      // 'script'
+      // )
+      // .then(data => {
         
-      })
-      .catch(error => console.log(error));  
+      // })
+      // .catch(error => console.log(error));  
   }
 
 }

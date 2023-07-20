@@ -1,0 +1,38 @@
+<section class="section-t-space">
+    <div class="custom-container">
+      <div class="title">
+        <h3 class="mt-0">Recomendado para Tí</h3>
+        <a routerLink="/foodListing">Ver todos</a>
+      </div>
+
+      <div class="swiper products">
+        <swiper [config]="yeoman.configSuggestions" >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let suggestion of yeoman.suggestions; let i =index ">
+              <div class="product-box product-box-bg">
+                <a  class="product-box-img">
+                  <img class="img-fluid" src="{{suggestion.images[0]}}" alt="p1" />
+                </a>
+                <div class="product-box-detail">
+                  <h5>{{suggestion.name}}</h5>
+                  <ul class="timing">
+                    <li>
+                      <span class="star"><i class="ri-star-s-fill"></i></span> 3.7
+                    </li>
+                    <li>20 min</li>
+                  </ul>
+                  <div class="bottom-panel">
+                    <div class="price">${{suggestion.price}}</div>
+                    <a href="cart.html" class="cart mb-0">
+                      <i class="ri-shopping-cart-2-fill"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </swiper>
+      </div>
+    </div>
+  </section>
