@@ -23,6 +23,7 @@ import { BrandsComponent } from '../shared/brands/brands.component';
 })
 
 export class HomeComponent implements AfterViewInit {
+  loaded:any=false;
   yeomanTop$: Observable<any> | undefined; // Inicializar como undefined
 
   evenBrands: any[] = [];
@@ -43,7 +44,7 @@ export class HomeComponent implements AfterViewInit {
     public script:ScriptService,
     private router:Router
     ) {
-     
+     this.cdr.detectChanges
       // this.sharedComponent.loadTop();
     
      }
@@ -95,6 +96,19 @@ export class HomeComponent implements AfterViewInit {
   
   
      ngAfterViewInit(): void {  
+      if (this.yeoman.loaded){
+          this.script.load(  
+       'bootstrap',
+       'bundle',
+       'swiper',
+       'script'
+       )
+       .then(data => {
+        
+       })
+       .catch(error => console.log(error));  
+      }
+      this.yeoman.loaded=true;
       this.yeomanTop$ = this.infofake.loadInfofakeData().pipe(
         tap((response: any) => {
           // console.log("HOAAAA" +response)

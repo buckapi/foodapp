@@ -5,14 +5,29 @@ import { SwiperOptions } from 'swiper';
 })
 
 export class Yeoman {
- 
+loaded:any=false;
 
-  configSuggestions: SwiperOptions = {
+configBrands: SwiperOptions = {
+  a11y: { enabled: true },
+  direction: 'horizontal',
+  slidesPerView: 2,
+  keyboard: true,
+  mousewheel: false,
+  scrollbar: false,
+   autoplay: { delay: 1000 },
+  pagination: false,
+  spaceBetween: 5,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+}; 
+ configSuggestions: SwiperOptions = {
     a11y: { enabled: true },
     direction: 'horizontal',
     slidesPerView: 2,
     keyboard: true,
-    mousewheel: false,
+    mousewheel: false,  
     scrollbar: false,
      autoplay: { delay: 1000 },
     pagination: false,
@@ -22,7 +37,6 @@ export class Yeoman {
       prevEl: '.swiper-button-prev'
     },
   }; 
-
 
 
   [key: string]: any;

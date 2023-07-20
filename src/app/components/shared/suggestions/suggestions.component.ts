@@ -22,6 +22,7 @@ export class SuggestionsComponent implements AfterViewInit {
 
   ) {
     this.loadScripts();
+    this.yeoman.suggestions=[];
     this.loadInfo("suggestions");
    }
   loadInfo(entity:string) {

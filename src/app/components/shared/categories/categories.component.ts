@@ -34,7 +34,12 @@ export class CategoriesComponent implements AfterViewInit {
      public script:ScriptService,
     private router:Router
 
-  ) { }
+  ) {
+    this.yeoman.categories=[]; 
+    this.loadInfo("categories");
+    
+
+  }
   loadInfo(entity:string) {
     let ent=entity;
     this.infofake.loadInfofakeData()
@@ -45,7 +50,7 @@ export class CategoriesComponent implements AfterViewInit {
       });
    }
   ngAfterViewInit(): void {
-    this.loadInfo("categories");
+  
   }
 
 }

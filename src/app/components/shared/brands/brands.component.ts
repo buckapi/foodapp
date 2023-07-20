@@ -34,7 +34,14 @@ export class BrandsComponent implements AfterViewInit {
   public infofake:InfofakeService,
    public script:ScriptService,
   private router:Router
-  ) { }
+  ) {
+    this.yeoman.evenBrands=[];
+    this.yeoman.brands=[];
+   
+    this.yeoman.oddBrands=[];
+    this.loadInfo("brands")
+    
+   }
 
   loadInfo(entity:string) {
     let ent=entity;
@@ -51,7 +58,7 @@ export class BrandsComponent implements AfterViewInit {
 
     
       ngAfterViewInit(): void {
-     this.loadInfo("brands");
+    
     // this.splitBrands();
     this.script.load(  
       'bootstrap',
@@ -67,11 +74,14 @@ export class BrandsComponent implements AfterViewInit {
   
   splitBrands(): void {
     // Ordena alfabéticamente las marcas en el array this.infofake.brands
-    this.yeoman.brands.sort((a:any, b:any) => a.name.localeCompare(b.name));    
+    this.yeoman.brands.sort((a:any, b:any) => a.name.localeCompare(b.name));  
+      
     // Filtra las marcas con índices pares y las asigna al array this.evenBrands
     this.yeoman.evenBrands = this.yeoman.brands.filter((_:any, index:any) => index % 2 === 0);    
     // Filtra las marcas con índices impares y las asigna al array this.oddBrands
     this.yeoman.oddBrands = this.yeoman.brands.filter((_:any, index:any) => index % 2 !== 0);
+    // this.yeoman.brands=[];
+    
   }
 
 }

@@ -46,7 +46,7 @@ export class OffersComponent implements AfterViewInit {
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {  
-   this.yeoman.virtualRoute="offers";
+  //  this.yeoman.virtualRoute="offers";
     this.toggleCustomClass();
      this.yeoman.virtualRoute="offers";      
     // this.script.load(  
@@ -61,6 +61,6 @@ export class OffersComponent implements AfterViewInit {
     // .catch(error => console.log(error));  
 }
     toggleCustomClass() {
-      this.isActive = !this.isActive;
+      // this.isActive = !this.isActive;
     }
 }
