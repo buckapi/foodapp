@@ -9,6 +9,7 @@ import { SwiperOptions } from 'swiper';
   styleUrls: ['./offers.component.css']
 })
 export class OffersComponent implements AfterViewInit {
+  isActive: boolean = true;
   configOffer: SwiperOptions = {
     effect: "coverflow",
   grabCursor: true,
@@ -67,5 +68,7 @@ export class OffersComponent implements AfterViewInit {
     })
     .catch(error => console.log(error));  
 }
-
+toggleCustomClass() {
+  this.isActive = !this.isActive;
+}
 }

@@ -2331,7 +2331,7 @@ li {
 
 .offer-wrapper .swiper-slide img {
   transform: scale(0.8);
-  opacity: 0.4;
+  /* opacity: 0.4; opacidad de imagen */
 }
 .offer-wrapper .swiper-slide-active img {
   transform: scale(1);
@@ -4622,3 +4622,11 @@ body.dark .vertical-product-box {
   border: 1px solid rgba(245, 245, 245, 0.06);
 }
 /*# sourceMappingURL=style.css.map */
+.mi_clase .swiper-slide-shadow-right{
+  box-shadow: none !important;
+  background-image: none !important;
+}
+.mi_clase .swiper-slide-shadow-left{
+  box-shadow: none !important;
+  background-image: none !important;
+}
