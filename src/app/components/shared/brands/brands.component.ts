@@ -20,9 +20,9 @@ export class BrandsComponent implements AfterViewInit {
     keyboard: true,
     mousewheel: false,
     scrollbar: false,
-     autoplay: { delay: 1500 },
+     autoplay: { delay: 400 },
     pagination: false,
-    spaceBetween: 5,
+    spaceBetween: 4,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
@@ -35,15 +35,22 @@ export class BrandsComponent implements AfterViewInit {
    public script:ScriptService,
   private router:Router
   ) {
+    // this.yeoman.configBrands={};
+    // this.yeoman.configBrands=this.configBrands;
     this.yeoman.evenBrands=[];
     this.yeoman.brands=[];
    
     this.yeoman.oddBrands=[];
+    // this.yeoman.configBrands={};
+    this.yeoman.configBrands = this.configBrands;
     this.loadInfo("brands")
+   
+    
     
    }
 
   loadInfo(entity:string) {
+    // this.yeoman.loaded=true;
     let ent=entity;
     this.infofake.loadInfofakeData()
       .subscribe((response: any) => {   

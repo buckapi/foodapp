@@ -1,0 +1,16 @@
+<section class="banner-section section-t-space" style="padding-top: 128px;">
+    <div class="custom-container">
+      <swiper [config]="yeoman.configBanner" >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let banner of yeoman.banners">
+            <img class="img-fluid banner-img" src="{{banner.images[0]}}" alt="banner1" />
+          </div>
+          <!-- <div class="swiper-pagination"></div> -->
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- <div class="swiper-button-prev" style="color: #ff0000ff;" ></div>
+        <div class="swiper-button-next" style="color: #ff0000ff;"></div> -->
+      </swiper>    
+        
+    </div>
+  </section>

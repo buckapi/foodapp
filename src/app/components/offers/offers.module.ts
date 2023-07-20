@@ -8,6 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 import { TopComponent } from '../shared/top/top.component';
 import { SuggestionsComponent } from '../shared/suggestions/suggestions.component';
 import { Route, RouterModule } from '@angular/router';
+import { BrandsComponent } from '../shared/brands/brands.component';
+import { InfofakeService } from '@app/services/infofake.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { Route, RouterModule } from '@angular/router';
   ],
   providers:[
     TopComponent,
-    SuggestionsComponent
+    BrandsComponent,
+    SuggestionsComponent, InfofakeService
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -7,11 +7,11 @@ import { InfofakeService } from '@app/services/infofake.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
- import { TopComponent } from '../shared/top/top.component';
+import { TopComponent } from '../shared/top/top.component';
 import { SharedModule } from '../shared/shared.module';
-import { BrandsComponent } from '../shared/brands/brands.component';
 import { SuggestionsComponent } from '../shared/suggestions/suggestions.component';
 import { CategoriesComponent } from '../shared/categories/categories.component';
+import { BannersComponent } from '../shared/banners/banners.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +27,11 @@ import { CategoriesComponent } from '../shared/categories/categories.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers:[
-    BrandsComponent,
-     TopComponent,
-SuggestionsComponent,
-CategoriesComponent,
+    BannersComponent,
+  
+    TopComponent,
+    SuggestionsComponent,
+    CategoriesComponent,
     InfofakeService
   ]
 })

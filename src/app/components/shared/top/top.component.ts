@@ -15,12 +15,6 @@ import { ChangeDetectorRef } from '@angular/core';
 export class TopComponent implements AfterViewInit {
   yeomanTop$: Observable<any> | undefined; // Inicializar como undefined
 
-
-  evenBrands: any[] = [];
-  oddBrands: any[] = [];
-
-  brands:any=[];
-
   constructor(
     private cdr: ChangeDetectorRef,
     public yeoman:Yeoman, 
@@ -37,11 +31,7 @@ export class TopComponent implements AfterViewInit {
       });
    }
 
-  
     ngAfterViewInit(): void {
       this.loadInfo("top");
-  
-
   }
-
 }

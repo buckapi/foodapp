@@ -13,27 +13,15 @@ import { Yeoman } from './services/yeoman.service';
 })
 
 export class AppComponent implements AfterViewInit {
-  configSuggestions = {
-    a11y: { enabled: true },
-    direction: 'horizontal',
-    slidesPerView: 2,
-    keyboard: true,
-    mousewheel: false,
-    scrollbar: false,
-    autoplay: { delay: 1000 },
-    pagination: false,
-    spaceBetween: 5,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-  };
-  title = 'vk';
+
+  title = 'Foodapp';
   constructor(
-public yeoman:Yeoman,
+    public yeoman:Yeoman,
     public infofake:InfofakeService,
     public script:ScriptService
   ){
+    // this.yeoman.brands=[];
+// this.loadInfo("brands");
       this.script.load(  
         'bootstrap',
         'bundle',
@@ -44,20 +32,7 @@ public yeoman:Yeoman,
         })
         .catch(error => console.log(error));  
   }
-    config: SwiperOptions = {
-    a11y: { enabled: true },
-    direction: 'horizontal',
-    slidesPerView: 4,
-    keyboard: true,
-    mousewheel: false,
-    scrollbar: false,
-    pagination: true,
-    spaceBetween: 5,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-  };  
+ 
   loadInfo(entity:string) {
     let ent=entity;
     this.infofake.loadInfofakeData()
@@ -68,10 +43,10 @@ public yeoman:Yeoman,
 
   ngAfterViewInit(): void {
   // this.yeoman.configSuggestions=this.configSuggestions;
-     this.loadInfo("suggestions");
-     this.loadInfo("banners");
-     this.loadInfo("offers");
-     this.loadInfo("top");
-     this.loadInfo("categories");
+    //  this.loadInfo("suggestions");
+    //  this.loadInfo("banners");
+    //  this.loadInfo("offers");
+    //  this.loadInfo("top");
+    //  this.loadInfo("categories");
   }
 }

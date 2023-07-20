@@ -1,7 +1,7 @@
       <!-- bottom navbar start -->
       <div class="navbar-menu"  *ngIf="!isCategoriesRoute()">
         <ul>
-          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'home' }"(click)="setVirtualRoute('home')">
+          <li [ngClass]="{ 'active': router.url.includes('home') }" >
             <a routerLink="home">
               <div class="icon">
                 <img class="unactive" src="assets/radarfood/images/svg/home.svg" alt="home" />
@@ -10,7 +10,7 @@
               <span class="active" >Inicio</span>
             </a>
           </li>
-          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'offers' }"(click)="setVirtualRoute('offers')">
+          <li [ngClass]="{ 'active': router.url.includes('offers') }" >
             <a  routerLink="offers">
               <div class="icon">
                 <img class="unactive" src="assets/radarfood/images/svg/offer.svg" alt="offer" />
@@ -20,7 +20,7 @@
             </a>
           </li>
   
-          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'cart' }"(click)="setVirtualRoute('home')">
+          <li [ngClass]="{ 'active': router.url.includes('cart') }" >
             <a href="cart.html">
               <div class="icon">
                 <img class="unactive"  src="assets/radarfood/images/svg/cart.svg" alt="cart" />
@@ -29,7 +29,7 @@
               <span>Mi orden</span>
             </a>
           </li>
-          <li [ngClass]="{ 'active': yeoman.virtualRoute === 'profile' }"(click)="setVirtualRoute('home')">
+          <li [ngClass]="{ 'active': router.url.includes('perfil') }" >
             <a href="profile.html">
               <div class="icon">
                 <img class="unactive"  src="assets/radarfood/images/svg/user.svg" alt="user.svg" />

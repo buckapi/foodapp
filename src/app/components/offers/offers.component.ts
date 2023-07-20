@@ -39,14 +39,18 @@ export class OffersComponent implements AfterViewInit {
     public script:ScriptService,
     public yeoman:Yeoman
   ) {
-
+   
+    this.yeoman.virtualRoute="offers";
     
    }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {  
-  //  this.yeoman.virtualRoute="offers";
+    this.yeoman.virtualRoute="offers";
+
+console.log("SETED");
+    //  this.yeoman.virtualRoute="offers";
     this.toggleCustomClass();
      this.yeoman.virtualRoute="offers";      
     // this.script.load(  

@@ -8,12 +8,26 @@ import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
 @Component({
-  selector: 'app-suggestions',
-  templateUrl: './suggestions.component.html',
-  styleUrls: ['./suggestions.component.css']
+  selector: 'app-banners',
+  templateUrl: './banners.component.html',
+  styleUrls: ['./banners.component.css']
 })
-export class SuggestionsComponent implements AfterViewInit {
- 
+export class BannersComponent implements AfterViewInit {
+  configBrands: SwiperOptions = {
+    a11y: { enabled: true },
+    direction: 'horizontal',
+    slidesPerView: 4,
+    keyboard: true,
+    mousewheel: false,
+    scrollbar: false,
+     autoplay: { delay: 1500 },
+    pagination: false,
+    spaceBetween: 5,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+  };
   constructor(
     public yeoman:Yeoman, 
     public infofake:InfofakeService,
@@ -21,9 +35,12 @@ export class SuggestionsComponent implements AfterViewInit {
     private router:Router
 
   ) {
-    // this.loadScripts();
-    this.yeoman.suggestions=[];
-    this.loadInfo("suggestions");
+    this.yeoman.banners=[]; this.yeoman.brands=null;
+    this.yeoman.evenBrands=[];
+    this.yeoman.oddBrands=[];
+    this.loadInfo("banners");
+    // this.yeoman.configBrands=this.configBrands;
+
    }
   loadInfo(entity:string) {
     let ent=entity;
@@ -31,23 +48,10 @@ export class SuggestionsComponent implements AfterViewInit {
       .subscribe((response: any) => {   
         console.log(response);  
         this.yeoman[ent] = response[ent];
-        
+     
       });
    }
-loadScripts(){
-  this.script.load(  
-    'bootstrap',
-    'bundle',
-    'swiper',
-    'script'
-    )
-    .then(data => {
-      
-    })
-    .catch(error => console.log(error));  
-}
   ngAfterViewInit(): void {
-     
   }
 
 }

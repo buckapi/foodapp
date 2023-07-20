@@ -7,14 +7,13 @@ import { InfofakeService } from '@app/services/infofake.service';
 import { Router } from '@angular/router';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { TopComponent } from '../shared/top/top.component';
-
+import { BannersComponent } from '../shared/banners/banners.component';
 // import { TopComponent } from '../shared/top/top.component';
 // import { TopComponent } from '../shared/top/top.component';
 
 // import { SharedComponent } from '../shared/shared.component';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { BrandsComponent } from '../shared/brands/brands.component';
 
 @Component({
   selector: 'app-home',
@@ -24,111 +23,45 @@ import { BrandsComponent } from '../shared/brands/brands.component';
 
 export class HomeComponent implements AfterViewInit {
   loaded:any=false;
-  yeomanTop$: Observable<any> | undefined; // Inicializar como undefined
-
-  evenBrands: any[] = [];
-  oddBrands: any[] = [];
   top:any=[];
   categories:any=[];
   suggestions:any=[];
-  brands:any=[];
   banners:any=[];
   
   constructor( 
+    public bannersComponent:BannersComponent,
     public topComponent:TopComponent,
-    public brandsComponent:BrandsComponent,
-    // public sharedComponent:SharedComponent,
     private cdr: ChangeDetectorRef,
     public yeoman:Yeoman, 
     public infofake:InfofakeService,
     public script:ScriptService,
     private router:Router
     ) {
-     this.cdr.detectChanges
-      // this.sharedComponent.loadTop();
-    
+      this.loadInfo("brands")
      }
-    //  loadTop() {
-    //   this.infofake.loadInfofakeData().subscribe((response: any) => {
-    //     this.yeoman.top = response.top || [];
-    //     this.yeoman.categories=response.categories|| [];  
-    //     this.yeoman.suggestions=response.suggestions|| [];
-    //     this.yeoman.brands=response.brands|| [];
-    //     this.yeoman.banners=response.banners|| [];
-    //     this.splitBrands();
-    //   });
-    //  }
-    //  loadTopAlt() {
-    //   this.infofake.loadInfofakeData().subscribe((response: any) => {
-    //     // Acceder solo a la propiedad data.brands
-    //     this.yeoman.brands = response?.data?.brands || [];
-    
-    //     // Resto del código...
-    //     this.yeoman.top = response?.top || [];
-    //     this.yeoman.categories = response?.categories || [];
-    //     this.yeoman.suggestions = response?.suggestions || [];
-    //     this.yeoman.banners = response?.banners || [];
-    //     this.splitBrands();
-    //   });
-    // }
-    
-     configBanner: SwiperOptions = {
-      a11y: { enabled: true },
-      direction: 'horizontal',
-      slidesPerView: 1,
-      keyboard: true,
-      mousewheel: false,
-      scrollbar: false,
-      pagination: true,
-      autoplay: { delay: 4000 },
- 
-      spaceBetween: 5,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-    }; 
-   
-
+     splitBrands(): void {
+      // Ordena alfabéticamente las marcas en el array this.infofake.brands
+      this.yeoman.brands.sort((a:any, b:any) => a.name.localeCompare(b.name));  
+        
+      // Filtra las marcas con índices pares y las asigna al array this.evenBrands
+      this.yeoman.evenBrands = this.yeoman.brands.filter((_:any, index:any) => index % 2 === 0);    
+      // Filtra las marcas con índices impares y las asigna al array this.oddBrands
+      this.yeoman.oddBrands = this.yeoman.brands.filter((_:any, index:any) => index % 2 !== 0);
+      // this.yeoman.brands=[];
       
-  
-
-  
-  
-     ngAfterViewInit(): void {  
-      if (this.yeoman.loaded){
-          this.script.load(  
-       'bootstrap',
-       'bundle',
-       'swiper',
-       'script'
-       )
-       .then(data => {
-        
-       })
-       .catch(error => console.log(error));  
-      }
+    }
+     loadInfo(entity:string) {
       this.yeoman.loaded=true;
-      this.yeomanTop$ = this.infofake.loadInfofakeData().pipe(
-        tap((response: any) => {
-          // console.log("HOAAAA" +response)
-          this.yeoman.top=response.top;
-          // Resto del código...
-        })
-      );
-
-
-      this.yeoman.virtualRoute="home";      
-      // this.script.load(  
-      // 'bootstrap',
-      // 'bundle',
-      // 'swiper',
-      // 'script'
-      // )
-      // .then(data => {
-        
-      // })
-      // .catch(error => console.log(error));  
+      let ent=entity;
+      this.infofake.loadInfofakeData()
+        .subscribe((response: any) => {   
+          console.log(response);  
+          this.yeoman[ent] = response[ent];
+          this.splitBrands();
+        });
+     }
+     ngAfterViewInit(): void {  
+   
   }
 
 }

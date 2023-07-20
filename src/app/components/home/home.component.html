@@ -1,21 +1,6 @@
 
     <!-- banner section start -->
-    <section class="banner-section section-t-space" style="padding-top: 128px;">
-        <div class="custom-container">
-          <swiper [config]="configBanner" >
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" *ngFor="let banner of yeoman.banners">
-                <img class="img-fluid banner-img" src="{{banner.images[0]}}" alt="banner1" />
-              </div>
-              <!-- <div class="swiper-pagination"></div> -->
-            </div>
-            <!-- <div class="swiper-pagination"></div> -->
-            <!-- <div class="swiper-button-prev" style="color: #ff0000ff;" ></div>
-            <div class="swiper-button-next" style="color: #ff0000ff;"></div> -->
-          </swiper>    
-            
-        </div>
-      </section>
+   <app-banners></app-banners>
   
       <!-- banner section end -->
   
@@ -28,7 +13,31 @@
       <!-- suggesitons section start -->
   
       <!-- Brand section start -->
-     <app-brands></app-brands>
+     <section class="section-t-space">
+      <div class="custom-container">
+        <div class="title">
+          <h3 class="mt-0">Franquicias</h3>
+          <a href="" >Ver todos</a>
+        </div>  
+        <div class="swiper brands-logo">
+          <swiper [config]="yeoman.configBrands">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide active" *ngFor="let brand of yeoman.evenBrands.slice(0, 5); let i = index" >
+                <a  class="food-brands">
+                  <img class="img-fluid brand-img" src="{{brand.images[0]}}" alt="brand1" />
+                </a>
+                <h4>{{brand.name}}</h4>     
+                <a  class="food-brands mt-2">
+                  <img class="img-fluid brand-img" src="{{yeoman.oddBrands[i].images[0]}}" alt="brand6" />
+                </a>
+                <h4>{{yeoman.oddBrands[i].name}}</h4>
+              </div>    
+            </div>
+          </swiper>
+        </div>
+      </div>
+    </section>
+   
       <!-- Brand section start -->
   
       <!-- TOP 5  Cocinas section start -->
