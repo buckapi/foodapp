@@ -37,7 +37,7 @@ export class HomeComponent implements AfterViewInit {
     public script:ScriptService,
     private router:Router
     ) {
-      this.loadInfo("brands")
+      // this.loadInfo("brands") desactivado
      }
      splitBrands(): void {
       // Ordena alfabéticamente las marcas en el array this.infofake.brands
@@ -51,14 +51,14 @@ export class HomeComponent implements AfterViewInit {
       
     }
      loadInfo(entity:string) {
-      this.yeoman.loaded=true;
-      let ent=entity;
-      this.infofake.loadInfofakeData()
-        .subscribe((response: any) => {   
-          console.log(response);  
-          this.yeoman[ent] = response[ent];
-          this.splitBrands();
-        });
+      // this.yeoman.loaded=true;
+      // let ent=entity;
+      // this.infofake.loadInfofakeData()
+      //   .subscribe((response: any) => {   
+      //     // console.log(response);  
+      //     this.yeoman[ent] = response[ent];
+      //     this.splitBrands();
+      //   });
      }
      ngAfterViewInit(): void {  
    

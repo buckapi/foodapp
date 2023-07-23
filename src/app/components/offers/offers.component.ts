@@ -5,6 +5,8 @@ import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
 import { TopComponent } from '../shared/top/top.component';
 import { Router } from '@angular/router';
+import { ApiGunService } from '@app/services/apiGun.service';
+
 TopComponent
 @Component({
   selector: 'app-offers',
@@ -16,53 +18,41 @@ export class OffersComponent implements AfterViewInit {
 
   configOffer: SwiperOptions = {
     effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  loop: true,
-  spaceBetween: 0,
-  slidesPerView:1.8,
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-    
-  },pagination: {
-    el: ".swiper-pagination",
-  },
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 0,
+    slidesPerView:1.8,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+      
+    },pagination: {
+      el: ".swiper-pagination",
+    },
   }; 
 
   constructor(
+    public apiGunService:ApiGunService,
     public router:Router,
-  public topComponent:TopComponent,
+    public topComponent:TopComponent,
     public script:ScriptService,
     public yeoman:Yeoman
   ) {
-   
+    this.apiGunService.loadAllEntities();
     this.yeoman.virtualRoute="offers";
-    
    }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {  
     this.yeoman.virtualRoute="offers";
-
-console.log("SETED");
-    //  this.yeoman.virtualRoute="offers";
+    console.log("SETED");
     this.toggleCustomClass();
-     this.yeoman.virtualRoute="offers";      
-    // this.script.load(  
-    // 'bootstrap',
-    // 'bundle',
-    // 'swiper',
-    // 'script'
-    // )
-    // .then(data => {
-      
-    // })
-    // .catch(error => console.log(error));  
+    this.yeoman.virtualRoute="offers";       
 }
     toggleCustomClass() {
       // this.isActive = !this.isActive;

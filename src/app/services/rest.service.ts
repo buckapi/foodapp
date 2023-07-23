@@ -65,7 +65,7 @@ export class DataApiService {
 	});
 
     getTop(){
-       	this.infofake.loadInfofakeData()	
+       	// this.infofake.loadInfofakeData()	
         }
 
 	// saveCustomer(customer :CustomerInterface){

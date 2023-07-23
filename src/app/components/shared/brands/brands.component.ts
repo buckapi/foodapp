@@ -43,7 +43,7 @@ export class BrandsComponent implements AfterViewInit {
     this.yeoman.oddBrands=[];
     // this.yeoman.configBrands={};
     this.yeoman.configBrands = this.configBrands;
-    this.loadInfo("brands")
+    // this.loadInfo("brands") desactivado
    
     
     
@@ -51,13 +51,13 @@ export class BrandsComponent implements AfterViewInit {
 
   loadInfo(entity:string) {
     // this.yeoman.loaded=true;
-    let ent=entity;
-    this.infofake.loadInfofakeData()
-      .subscribe((response: any) => {   
-        console.log(response);  
-        this.yeoman[ent] = response[ent];
-        this.splitBrands();
-      });
+    // let ent=entity;
+    // this.infofake.loadInfofakeData()
+    //   .subscribe((response: any) => {   
+    //     console.log(response);  
+    //     this.yeoman[ent] = response[ent];
+    //     this.splitBrands();
+    //   });
    }
 
   

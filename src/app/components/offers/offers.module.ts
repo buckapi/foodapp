@@ -10,6 +10,7 @@ import { SuggestionsComponent } from '../shared/suggestions/suggestions.componen
 import { Route, RouterModule } from '@angular/router';
 import { BrandsComponent } from '../shared/brands/brands.component';
 import { InfofakeService } from '@app/services/infofake.service';
+import { ApiGunService } from '@app/services/apiGun.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { InfofakeService } from '@app/services/infofake.service';
   providers:[
     TopComponent,
     BrandsComponent,
-    SuggestionsComponent, InfofakeService
+    SuggestionsComponent, 
+    InfofakeService,
+    ApiGunService
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

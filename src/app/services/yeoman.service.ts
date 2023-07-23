@@ -47,10 +47,12 @@ export class Yeoman {
   virtualRoute: any = "home";
   pop: Boolean = false;
   data: any = {};
+  dataF: any = {};
   products: any = {};
   top: any = [];
   brands: any = [null];
   suggestions: any = [];
+  offers: any = [];
   categories: any = [];
   banners: any = [];
   evenBrands: any = [];

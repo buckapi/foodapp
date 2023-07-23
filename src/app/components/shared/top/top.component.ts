@@ -1,37 +1,39 @@
 import { Component, OnInit ,AfterViewInit} from '@angular/core';
-import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+
 import { InfofakeService } from '@app/services/infofake.service';
-import { HttpClientModule } from '@angular/common/http';
+
 import { Router, RouterModule } from '@angular/router';
 import { Yeoman } from '@app/services/yeoman.service';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+
 import { ChangeDetectorRef } from '@angular/core';
+import { ApiGunService } from '@app/services/apiGun.service';
+import Gun from 'gun/gun';
+import 'gun/sea';
 @Component({
   selector: 'app-top',
   templateUrl: './top.component.html',
   styleUrls: ['./top.component.css']
 })
 export class TopComponent implements AfterViewInit {
-  yeomanTop$: Observable<any> | undefined; // Inicializar como undefined
-
+  private gunInstance: any;
+  top:any=[];
   constructor(
+    public apiGunService:ApiGunService,
     private cdr: ChangeDetectorRef,
     public yeoman:Yeoman, 
     public infofake:InfofakeService,
     private router:Router
-  ) {}
-
-  loadInfo(entity:string) {
-    let ent=entity;
-    this.infofake.loadInfofakeData()
-      .subscribe((response: any) => {   
-        console.log(response);  
-        this.yeoman[ent] = response[ent];
-      });
-   }
+  ) {
+    this.yeoman.top=[];
+    this.apiGunService.getEntityData("top")
+  }
 
     ngAfterViewInit(): void {
-      this.loadInfo("top");
+      // this.apiGunService.getEntityData("top");
+
+      // Accede a las suggestions desde el servicio Yeoman
+      this.top = this.yeoman.top;
+      console.log("HEY: "+this.top); // Muestra los datos de las suggestions en la consola
+  
   }
 }

@@ -7,33 +7,23 @@ import { Yeoman } from '@app/services/yeoman.service';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
+import { ApiGunService } from '@app/services/apiGun.service';
 @Component({
   selector: 'app-suggestions',
   templateUrl: './suggestions.component.html',
   styleUrls: ['./suggestions.component.css']
 })
 export class SuggestionsComponent implements AfterViewInit {
- 
   constructor(
-    public yeoman:Yeoman, 
     public infofake:InfofakeService,
-     public script:ScriptService,
-    private router:Router
+    public script:ScriptService,
+    private router:Router,
+    public apiGunService:ApiGunService,
+    public yeoman:Yeoman
+  ) {this.yeoman.suggestions=[];
+     this.apiGunService.getEntityData("suggestions");
+   }
 
-  ) {
-    // this.loadScripts();
-    this.yeoman.suggestions=[];
-    this.loadInfo("suggestions");
-   }
-  loadInfo(entity:string) {
-    let ent=entity;
-    this.infofake.loadInfofakeData()
-      .subscribe((response: any) => {   
-        console.log(response);  
-        this.yeoman[ent] = response[ent];
-        
-      });
-   }
 loadScripts(){
   this.script.load(  
     'bootstrap',
@@ -46,8 +36,8 @@ loadScripts(){
     })
     .catch(error => console.log(error));  
 }
-  ngAfterViewInit(): void {
-     
-  }
 
+  ngAfterViewInit(): void {
+  }
+  
 }

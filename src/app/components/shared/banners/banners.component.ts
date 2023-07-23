@@ -1,12 +1,9 @@
-import { Component, OnInit ,AfterViewInit} from '@angular/core';
-// import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { Component, AfterViewInit } from '@angular/core';
+import { ApiGunService } from '@app/services/apiGun.service';
 import { InfofakeService } from '@app/services/infofake.service';
-import { HttpClientModule } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router';
 import { Yeoman } from '@app/services/yeoman.service';
-import { ScriptService } from '@app/services/script.service';
-import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
+
 @Component({
   selector: 'app-banners',
   templateUrl: './banners.component.html',
@@ -20,7 +17,7 @@ export class BannersComponent implements AfterViewInit {
     keyboard: true,
     mousewheel: false,
     scrollbar: false,
-     autoplay: { delay: 1500 },
+    autoplay: { delay: 1500 },
     pagination: false,
     spaceBetween: 5,
     navigation: {
@@ -28,29 +25,33 @@ export class BannersComponent implements AfterViewInit {
       prevEl: '.swiper-button-prev'
     },
   };
+
   constructor(
-    public yeoman:Yeoman, 
-    public infofake:InfofakeService,
-     public script:ScriptService,
-    private router:Router
-
+    public apiGunService:ApiGunService,
+    public yeoman: Yeoman,
+    public infofake: InfofakeService
   ) {
-    this.yeoman.banners=[]; this.yeoman.brands=null;
-    this.yeoman.evenBrands=[];
-    this.yeoman.oddBrands=[];
-    this.loadInfo("banners");
-    // this.yeoman.configBrands=this.configBrands;
+    this.yeoman.banners=[];
+     this.apiGunService.getEntityData("banners");
+    this.yeoman.banners = [];
+    this.yeoman.brands = null;
+    this.yeoman.evenBrands = [];
+    this.yeoman.oddBrands = [];
+    // this.loadInfo("banners");
+    // this.yeoman.configBrands = this.configBrands;
+  }
 
-   }
-  loadInfo(entity:string) {
-    let ent=entity;
-    this.infofake.loadInfofakeData()
-      .subscribe((response: any) => {   
-        console.log(response);  
-        this.yeoman[ent] = response[ent];
-     
-      });
-   }
+  loadInfo(entity: string) {
+    // this.infofake.getData().subscribe((data: any) => {
+    //   if (data && data[entity]) {
+    //     this.yeoman[entity] = data[entity];
+    //     console.log('Datos obtenidos:', data[entity]);
+    //   } else {
+    //     console.log('No se encontraron datos para la entidad', entity);
+    //   }
+    // });
+  }
+
   ngAfterViewInit(): void {
   }
 

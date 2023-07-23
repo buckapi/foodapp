@@ -13,6 +13,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { InfofakeService } from './services/infofake.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiGunService } from './services/apiGun.service';
 // import { BrandsComponent } from './components/shared/brands/brands.component';
 // import { TopComponent } from './components/shared/top/top.component';
 // import { SharedModule } from './components/shared/shared.module';
@@ -41,7 +42,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     }),
     
   ],
-  providers: [InfofakeService],
+  providers: [InfofakeService,ApiGunService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

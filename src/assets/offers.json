@@ -1,0 +1,5 @@
+[
+    { "name": "offer uno", "price": 4000, "images": ["assets/radarfood/images/banner/banner4.png"] },
+    { "name": "banner dos", "price": 4000, "images": ["assets/radarfood/images/banner/banner5.png"] },
+    { "name": "banner tres", "price": 4000, "images": ["assets/radarfood/images/banner/banner6.png"] }
+]

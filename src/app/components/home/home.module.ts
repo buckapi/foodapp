@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SuggestionsComponent } from '../shared/suggestions/suggestions.component';
 import { CategoriesComponent } from '../shared/categories/categories.component';
 import { BannersComponent } from '../shared/banners/banners.component';
+import { ApiGunService } from '@app/services/apiGun.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BannersComponent } from '../shared/banners/banners.component';
     TopComponent,
     SuggestionsComponent,
     CategoriesComponent,
-    InfofakeService
+    InfofakeService,
+    ApiGunService
   ]
 })
 export class HomeModule { }

@@ -1,5 +1,4 @@
 import { Component, OnInit ,AfterViewInit} from '@angular/core';
-// import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { InfofakeService } from '@app/services/infofake.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
@@ -7,6 +6,8 @@ import { Yeoman } from '@app/services/yeoman.service';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
+import { ApiGunService } from '@app/services/apiGun.service';
+
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -30,25 +31,16 @@ export class CategoriesComponent implements AfterViewInit {
   };  
   constructor(
     public yeoman:Yeoman, 
+    public apiGunService:ApiGunService,
     public infofake:InfofakeService,
-     public script:ScriptService,
+    public script:ScriptService,
     private router:Router
 
   ) {
     this.yeoman.categories=[]; 
-    this.loadInfo("categories");
-    
+    this.apiGunService.getEntityData("categories");
+    }
 
-  }
-  loadInfo(entity:string) {
-    let ent=entity;
-    this.infofake.loadInfofakeData()
-      .subscribe((response: any) => {   
-        console.log(response);  
-        this.yeoman[ent] = response[ent];
-     
-      });
-   }
   ngAfterViewInit(): void {
   
   }

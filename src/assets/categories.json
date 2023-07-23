@@ -1,0 +1,7 @@
+[
+    { "name": "PIzza", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/categories/pizaa.png"] },
+    { "name": "Burguer", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/categories/burger.png"] },
+    { "name": "Burritos", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/categories/boritto.png"] },
+    { "name": "Hot dogs", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/categories/hotdog.png"] },
+    { "name": "Moodles", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/categories/noodles.png"] }
+  ]

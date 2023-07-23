@@ -24,11 +24,11 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide active" *ngFor="let brand of yeoman.evenBrands.slice(0, 5); let i = index" >
                 <a  class="food-brands">
-                  <img class="img-fluid brand-img" src="{{brand.images[0]}}" alt="brand1" />
+                  <img class="img-fluid brand-img" src="{{brand.images}}" alt="brand1" />
                 </a>
                 <h4>{{brand.name}}</h4>     
                 <a  class="food-brands mt-2">
-                  <img class="img-fluid brand-img" src="{{yeoman.oddBrands[i].images[0]}}" alt="brand6" />
+                  <img class="img-fluid brand-img" src="{{yeoman.oddBrands[i].images}}" alt="brand6" />
                 </a>
                 <h4>{{yeoman.oddBrands[i].name}}</h4>
               </div>    

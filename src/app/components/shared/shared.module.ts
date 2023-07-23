@@ -4,12 +4,14 @@ import { TopComponent } from './top/top.component';
 
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { InfofakeService } from '@app/services/infofake.service';
+
 import { Yeoman } from '@app/services/yeoman.service';
 import { BrandsComponent } from './brands/brands.component';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { BannersComponent } from './banners/banners.component';
 import { Router, RouterModule } from '@angular/router';
+import { ApiGunService } from '@app/services/apiGun.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,6 @@ import { Router, RouterModule } from '@angular/router';
     CategoriesComponent,
     BannersComponent
   ],
-  providers: [Yeoman,InfofakeService],
+  providers: [Yeoman,InfofakeService,ApiGunService],
 })
 export class SharedModule { }

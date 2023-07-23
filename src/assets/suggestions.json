@@ -1,0 +1,5 @@
+[
+    { "name": "suggestion uno", "price": 4000, "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/suggestions/p1.png"] },
+    { "name": "suggestion dos", "price": 4000, "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/suggestions/p2.png"] },
+    { "name": "suggestion tres", "price": 4000, "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/suggestions/p3.png"] }
+  ]

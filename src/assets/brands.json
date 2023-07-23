@@ -1,0 +1,12 @@
+[
+    { "name": "La Pino’z", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand1.png"] },
+    { "name": "McDonald's", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand2.png"] },
+    { "name": "Starbucks", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand3.png"] },
+    { "name": "Pizza Hut", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand4.png"] },
+    { "name": "Burger King", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand6.png"] },
+    { "name": "Subway", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand7.png"] },
+    { "name": "Domino's", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand8.png"] },
+    { "name": "Taco Bell", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand9.png"] },
+    { "name": "Wendy's", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand5.png"] },
+    { "name": "Chipotle", "images": ["https://raw.githubusercontent.com/buckapi/infoFakeFoodapp/main/brands/brand10.png"] }
+  ]
