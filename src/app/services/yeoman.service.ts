@@ -6,7 +6,7 @@ import { SwiperOptions } from 'swiper';
 })
 export class Yeoman {
   loaded: any = false;
-
+  preview:any={};
   configOptions: SwiperOptions = {
     a11y: { enabled: true },
     direction: 'horizontal',
@@ -72,6 +72,9 @@ export class Yeoman {
     restUrl: "<origin rest url>",
     GQLUrl: "<origin GQL url>",
   };
-
+  // variables del cargador de imagenes
+  newImage:boolean=false;
+  newProductImage:boolean=false;
+  productImages:any[]=[];
   constructor() {}
 }

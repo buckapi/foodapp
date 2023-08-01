@@ -8,6 +8,7 @@ import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
 import { ApiGunService } from '@app/services/apiGun.service';
+import { SharedPopupService } from '@app/services/sharedPopup.service';
 @Component({
   selector: 'app-suggestions',
   templateUrl: './suggestions.component.html',
@@ -15,6 +16,7 @@ import { ApiGunService } from '@app/services/apiGun.service';
 })
 export class SuggestionsComponent implements AfterViewInit {
   constructor(
+    private sharedPopupService: SharedPopupService,
     public infofake:InfofakeService,
     public script:ScriptService,
     private router:Router,
@@ -34,9 +36,13 @@ loadScripts(){
     .then(data => {
       
     })
-    .catch(error => console.log(error));  
+    .catch(error => console.log(error));
 }
-
+showPopup(index:any) {
+  // this.sharedPopupService.togglePopup(true);console.log("preview: "+this.yeoman.suggestions[index])
+  this.yeoman.preview=this.yeoman.suggestions[index];
+  this.router.navigate(['/productDetail']);
+}
   ngAfterViewInit(): void {
   }
   

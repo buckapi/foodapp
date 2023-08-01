@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { InfofakeService } from './services/infofake.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiGunService } from './services/apiGun.service';
+import { FilePickerModule } from  'ngx-awesome-uploader';
 // import { BrandsComponent } from './components/shared/brands/brands.component';
 // import { TopComponent } from './components/shared/top/top.component';
 // import { SharedModule } from './components/shared/shared.module';
@@ -32,6 +33,7 @@ import { ApiGunService } from './services/apiGun.service';
     HttpClientModule,
      NgxUsefulSwiperModule,
     LazyLoadImageModule,
+    FilePickerModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

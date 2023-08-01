@@ -1,5 +1,5 @@
       <!-- bottom navbar start -->
-      <div class="navbar-menu"  *ngIf="!isCategoriesRoute()">
+      <div class="navbar-menu"  *ngIf="!isCategoriesRoute()" [hidden]="router.url.includes('productDetail') || router.url.includes('addProduct')">
         <ul>
           <li [ngClass]="{ 'active': router.url.includes('home') }" >
             <a routerLink="home">

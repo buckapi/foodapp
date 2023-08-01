@@ -1,4 +1,4 @@
-import { Component ,OnInit,AfterViewInit,ChangeDetectorRef} from '@angular/core';
+import { Component ,OnInit,AfterViewInit,ChangeDetectorRef,OnDestroy} from '@angular/core';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { Yeoman } from '@app/services/yeoman.service';
@@ -14,6 +14,8 @@ import { BannersComponent } from '../shared/banners/banners.component';
 // import { SharedComponent } from '../shared/shared.component';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { SharedPopupService } from '@app/services/sharedPopup.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +23,13 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  showPopup = false;
+  showBackground = false;
+  private popupSubscription: Subscription = new Subscription();
+
+  private backgroundSubscription: Subscription = new Subscription();
+
   loaded:any=false;
   top:any=[];
   categories:any=[];
@@ -29,6 +37,7 @@ export class HomeComponent implements AfterViewInit {
   banners:any=[];
   
   constructor( 
+    private sharedPopupService: SharedPopupService,
     public bannersComponent:BannersComponent,
     public topComponent:TopComponent,
     private cdr: ChangeDetectorRef,
@@ -60,7 +69,18 @@ export class HomeComponent implements AfterViewInit {
       //     this.splitBrands();
       //   });
      }
+     ngOnDestroy() {
+      this.popupSubscription.unsubscribe();
+      this.backgroundSubscription.unsubscribe();
+
+    }
      ngAfterViewInit(): void {  
+      this.popupSubscription = this.sharedPopupService.showPopup$.subscribe((show) => {
+        this.showPopup = show;
+      });
+      this.backgroundSubscription = this.sharedPopupService.showBackground$.subscribe((show) => {
+        this.showBackground = show;
+      });
    
   }
 

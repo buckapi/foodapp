@@ -4,6 +4,8 @@
     || router.url.includes('foodListing')
     || router.url.includes('offers')
     || router.url.includes('kitchenListing')
+    || router.url.includes('productDetail')
+    || router.url.includes('addProduct')
     )">
         <div class="custom-container">
           <div class="header">
@@ -28,12 +30,16 @@
     || router.url.includes('foodListing')
     || router.url.includes('offers')
     || router.url.includes('kitchenListing')
+    || router.url.includes('productDetail')
+    || router.url.includes('addProduct')
     )"></app-search>
     
     <!-- header para categorias -->
     <header class="section-t-space"  *ngIf="(router.url.includes('categories') 
     || router.url.includes('foodListing')
     || router.url.includes('kitchenListing')
+    || router.url.includes('addProduct')
+
     
     
     )">
@@ -45,6 +51,7 @@
           <h2  *ngIf="(router.url.includes('categories'))">Categorías de comida</h2>
           <h2  *ngIf="( router.url.includes('foodListing'))">Comidas recomendadas</h2>
           <h2  *ngIf="( router.url.includes('kitchenListing'))">Cocinas recomendadas</h2>
+          <h2  *ngIf="( router.url.includes('addProduct'))">Agregar producto</h2>
         </div>
       </div>
     </header>

@@ -8,7 +8,7 @@
       <div class="swiper products">
         <swiper [config]="yeoman.configSuggestions" >
           <div class="swiper-wrapper">
-            <div class="swiper-slide" *ngFor="let suggestion of yeoman.suggestions; let i =index ">
+            <div class="swiper-slide" *ngFor="let suggestion of yeoman.suggestions; let i =index "  (click)="showPopup(i)">
               <div class="product-box product-box-bg">
                 <a  class="product-box-img">
                   <img class="img-fluid" src="{{suggestion.images}}" alt="p1" />
