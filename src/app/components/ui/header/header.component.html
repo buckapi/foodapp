@@ -6,6 +6,7 @@
     || router.url.includes('kitchenListing')
     || router.url.includes('productDetail')
     || router.url.includes('addProduct')
+    || router.url.includes('myProducts')
     )">
         <div class="custom-container">
           <div class="header">
@@ -32,6 +33,7 @@
     || router.url.includes('kitchenListing')
     || router.url.includes('productDetail')
     || router.url.includes('addProduct')
+    || router.url.includes('myProducts')
     )"></app-search>
     
     <!-- header para categorias -->
@@ -40,18 +42,28 @@
     || router.url.includes('kitchenListing')
     || router.url.includes('addProduct')
 
+    || router.url.includes('myProducts')
+    
+
     
     
     )">
       <div class="custom-container">
-        <div class="header-panel">
-          <a routerLink="">
+        <div class="header-panel" >
+          <a routerLink=""  *ngIf="( router.url.includes('myProducts'))">
+            <i class="ri-arrow-left-s-line"></i>
+          </a>
+          <a routerLink="myProducts"  *ngIf="( router.url.includes('addProduct'))" >
             <i class="ri-arrow-left-s-line"></i>
           </a>
           <h2  *ngIf="(router.url.includes('categories'))">Categorías de comida</h2>
           <h2  *ngIf="( router.url.includes('foodListing'))">Comidas recomendadas</h2>
           <h2  *ngIf="( router.url.includes('kitchenListing'))">Cocinas recomendadas</h2>
           <h2  *ngIf="( router.url.includes('addProduct'))">Agregar producto</h2>
+          <h2  *ngIf="( router.url.includes('myProducts'))">My Products</h2>
+          <a   *ngIf="( router.url.includes('myProducts'))" routerLink="addProduct">
+            <i class="ri-add-line theme-color add-square-img"></i>
+          </a>
         </div>
       </div>
     </header>

@@ -10,6 +10,7 @@ const routes: Routes = [
    { path: 'kitchenListing', loadChildren: () => import('./components/kitchen-listing/kitchen-listing.module').then(m => m.KitchenListingModule) },
   { path: 'productDetail', loadChildren: () => import('./components/productDetail/product-detail.module').then(m => m.ProductDetailModule) },
   { path: 'addProduct', loadChildren: () => import('./components/addProduct/add-product.module').then(m => m.AddProductModule) },
+  { path: 'myProducts', loadChildren: () => import('./components/myProducts/my-products.module').then(m => m.MyProductsModule) },
    
 
 ];
