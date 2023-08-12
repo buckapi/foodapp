@@ -23,6 +23,7 @@ export class SuggestionsComponent implements AfterViewInit {
     public apiGunService:ApiGunService,
     public yeoman:Yeoman
   ) {this.yeoman.suggestions=[];
+    this.eliminarDuplicados(yeoman.suggestions,'name');
      this.apiGunService.getEntityData("suggestions");
    }
 
@@ -43,7 +44,25 @@ showPopup(index:any) {
   this.yeoman.preview=this.yeoman.suggestions[index];
   this.router.navigate(['/productDetail']);
 }
+
   ngAfterViewInit(): void {
+  }
+  
+
+ 
+  eliminarDuplicados<T extends Record<string, any>>(array: T[], atributo: keyof T): T[] {
+    const elementosVistos: { [key: string]: boolean } = {};
+    const resultado: T[] = [];
+
+    for (const elemento of array) {
+      const elementoKey = String(elemento[atributo]);
+      if (!elementosVistos[elementoKey]) {
+        resultado.push(elemento);
+        elementosVistos[elementoKey] = true;
+      }
+    }
+
+    return resultado;
   }
   
 }

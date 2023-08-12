@@ -175,4 +175,6 @@ export class InfofakeService {
     }
     return convertedData;
   }
+  
 }
+

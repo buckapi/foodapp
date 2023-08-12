@@ -25,15 +25,36 @@ export class TopComponent implements AfterViewInit {
     private router:Router
   ) {
     this.yeoman.top=[];
-    this.apiGunService.getEntityData("top")
+   this.apiGunService.getEntityData("top")
+ 
+    this.eliminarDuplicados(this.yeoman.top,'name');
+  }
+  
+  eliminarDuplicados<T extends Record<string, any>>(array: T[], atributo: keyof T): T[] {
+    const elementosVistos: { [key: string]: boolean } = {};
+    const resultado: T[] = [];
+
+    for (const elemento of array) {
+      const elementoKey = String(elemento[atributo]);
+      if (!elementosVistos[elementoKey]) {
+        resultado.push(elemento);
+        console.log("dato: "+elemento);
+        elementosVistos[elementoKey] = true;
+      }
+    }
+
+    return resultado;
   }
 
     ngAfterViewInit(): void {
+
+    // this.eliminarDuplicados(this.yeoman.top,'name');
       // this.apiGunService.getEntityData("top");
 
       // Accede a las suggestions desde el servicio Yeoman
       this.top = this.yeoman.top;
-      console.log("HEY: "+this.top); // Muestra los datos de las suggestions en la consola
+      this.eliminarDuplicados(this.yeoman.top,'name');
+      console.log("HEY: "+this.yeoman.top); // Muestra los datos de las suggestions en la consola
   
   }
 }

@@ -46,6 +46,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     public script:ScriptService,
     private router:Router
     ) {
+      this.eliminarDuplicados(yeoman.suggestions,'name')
       // this.loadInfo("brands") desactivado
      }
      splitBrands(): void {
@@ -73,6 +74,23 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       this.popupSubscription.unsubscribe();
       this.backgroundSubscription.unsubscribe();
 
+    }
+    
+   
+ 
+    eliminarDuplicados<T extends Record<string, any>>(array: T[], atributo: keyof T): T[] {
+      const elementosVistos: { [key: string]: boolean } = {};
+      const resultado: T[] = [];
+  
+      for (const elemento of array) {
+        const elementoKey = String(elemento[atributo]);
+        if (!elementosVistos[elementoKey]) {
+          resultado.push(elemento);
+          elementosVistos[elementoKey] = true;
+        }
+      }
+  
+      return resultado;
     }
      ngAfterViewInit(): void {  
       this.popupSubscription = this.sharedPopupService.showPopup$.subscribe((show) => {

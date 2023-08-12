@@ -42,7 +42,7 @@ export class OffersComponent implements AfterViewInit {
     public script:ScriptService,
     public yeoman:Yeoman
   ) {
-    this.apiGunService.loadAllEntities();
+    // this.apiGunService.loadAllEntities();
     this.yeoman.virtualRoute="offers";
    }
 
